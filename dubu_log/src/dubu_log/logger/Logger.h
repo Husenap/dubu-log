@@ -38,25 +38,27 @@ std::enable_if_t<std::is_base_of_v<ILogger, T>> Register(Args&&... args) {
 }
 }  // namespace dubu::log
 
-#ifndef DUBU_LOG_DISABLED
+#ifndef _DUBU_LOG_GENERAL
+#	ifndef DUBU_LOG_DISABLED
 
 // clang-format off
-#	define _DUBU_LOG_GENERAL(_level, ...) dubu::log::internal::Logger::Get().Log(_level, __FILE__, __LINE__, __FUNCTION__, __VA_ARGS__);
+#		define _DUBU_LOG_GENERAL(_level, ...) dubu::log::internal::Logger::Get().Log(_level, __FILE__, __LINE__, __FUNCTION__, __VA_ARGS__);
 
-#	define DUBU_LOG_DEBUG(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Debug, __VA_ARGS__)
-#	define DUBU_LOG_INFO(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Info, __VA_ARGS__)
-#	define DUBU_LOG_WARNING(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Warning, __VA_ARGS__)
-#	define DUBU_LOG_ERROR(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Error, __VA_ARGS__)
-#	define DUBU_LOG_FATAL(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Fatal, __VA_ARGS__)
+#		define DUBU_LOG_DEBUG(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Debug, __VA_ARGS__)
+#		define DUBU_LOG_INFO(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Info, __VA_ARGS__)
+#		define DUBU_LOG_WARNING(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Warning, __VA_ARGS__)
+#		define DUBU_LOG_ERROR(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Error, __VA_ARGS__)
+#		define DUBU_LOG_FATAL(...) _DUBU_LOG_GENERAL(dubu::log::LogLevel::Fatal, __VA_ARGS__)
 // clang-format on
 
-#else
+#	else
 
-#	define _DUBU_LOG_GENERAL(...)
-#	define DUBU_LOG_DEBUG(...)
-#	define DUBU_LOG_INFO(...)
-#	define DUBU_LOG_WARNING(...)
-#	define DUBU_LOG_ERROR(...)
-#	define DUBU_LOG_FATAL(...)
+#		define _DUBU_LOG_GENERAL(...)
+#		define DUBU_LOG_DEBUG(...)
+#		define DUBU_LOG_INFO(...)
+#		define DUBU_LOG_WARNING(...)
+#		define DUBU_LOG_ERROR(...)
+#		define DUBU_LOG_FATAL(...)
 
+#	endif
 #endif
