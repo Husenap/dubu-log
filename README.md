@@ -23,22 +23,20 @@ C++ Logger using fmt for formatting
 #include <dubu_log/dubu_log.h>
 
 struct Vector {
-	float x;
-	float y;
-	float z;
+  float x;
+  float y;
+  float z;
 
-	friend std::ostream& operator<<(std::ostream& os, const Vector& v) {
-		return os << "(x: " << v.x << ", y: " << v.y << ", z: " << v.z << ")";
-	}
+  friend std::ostream& operator<<(std::ostream& os, const Vector& v) {
+    return os << "(x: " << v.x << ", y: " << v.y << ", z: " << v.z << ")";
+  }
 };
 
 
 int main(){
   dubu::log::Register<dubu::log::ConsoleLogger>();
-
-	Vector v{1, 2, 3};
-
-	DUBU_LOG_DEBUG("Vector: {}", v); // Vector: (x: 1, y: 2, z: 3)
+  Vector v{1, 2, 3};
+  DUBU_LOG_DEBUG("Vector: {}", v); // Vector: (x: 1, y: 2, z: 3)
 }
 ```
 
@@ -58,13 +56,13 @@ int main(){
 
 class CustomLogger : dubu::log::ILogger {
 protected:
-	virtual void InternalLog(LogLevel           level,
-	                         const std::string& file,
-	                         uint32_t           line,
-	                         const std::string& function,
-	                         const std::string& text) override {
+  virtual void InternalLog(LogLevel           level,
+                           const std::string& file,
+                           uint32_t           line,
+                           const std::string& function,
+                           const std::string& text) override {
     // Custom logging implementation
-	}
+  }
 };
 
 int main(){
