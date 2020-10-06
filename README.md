@@ -56,11 +56,11 @@ int main(){
 
 class CustomLogger : dubu::log::ILogger {
 protected:
-  virtual void InternalLog(LogLevel           level,
-                           const std::string& file,
-                           uint32_t           line,
-                           const std::string& function,
-                           const std::string& text) override {
+  virtual void InternalLog(dubu::log::LogLevel level,
+                           const std::string&  file,
+                           uint32_t            line,
+                           const std::string&  function,
+                           const std::string&  text) override {
     // Custom logging implementation
   }
 };
