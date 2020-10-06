@@ -6,7 +6,7 @@ namespace dubu::log {
 
 class FileLogger : public ILogger {
 public:
-	FileLogger(std::string_view file);
+	FileLogger(const std::string& file);
 
 protected:
 	virtual void InternalLog(LogLevel           level,

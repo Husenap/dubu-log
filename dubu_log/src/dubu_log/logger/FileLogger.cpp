@@ -2,7 +2,7 @@
 
 namespace dubu::log {
 
-FileLogger::FileLogger(std::string_view file) {
+FileLogger::FileLogger(const std::string& file) {
 	mStream.open(file);
 }
 
