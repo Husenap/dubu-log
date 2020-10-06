@@ -20,7 +20,22 @@ TEST(dubu_log, file_logger) {
 	DUBU_LOG_INFO("File Test: {}", "INFO");
 	DUBU_LOG_WARNING("File Test: {}", "WARNING");
 	DUBU_LOG_ERROR("File Test: {}", "ERROR");
-	EXPECT_THROW(DUBU_LOG_FATAL("File Test: {}", "FATAL"),
-	             dubu::log::LogError);
+	EXPECT_THROW(DUBU_LOG_FATAL("File Test: {}", "FATAL"), dubu::log::LogError);
 }
 
+struct Vector {
+	float x;
+	float y;
+	float z;
+
+	friend std::ostream& operator<<(std::ostream& os, const Vector& v) {
+		return os << "(x: " << v.x << ", y: " << v.y << ", z: " << v.z << ")";
+	}
+};
+TEST(dubu_log, custom_type) {
+	dubu::log::Register<dubu::log::FileLogger>("custom_type.txt");
+
+	Vector v{1, 2, 3};
+
+	DUBU_LOG_DEBUG("Vector: {}", v);
+}
