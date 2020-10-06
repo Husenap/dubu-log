@@ -29,11 +29,11 @@ public:
 	void SetLevel(LogLevel level) { mLevel = level; }
 
 	template <typename... Args>
-	void Log(LogLevel    level,
-	         const char* file,
-	         uint32_t    line,
-	         const char* function,
-	         const char* formatString,
+	void Log(dubu::log::LogLevel level,
+	         const char*         file,
+	         uint32_t            line,
+	         const char*         function,
+	         const char*         formatString,
 	         Args&&... args) {
 		if (level < mLevel) {
 			return;

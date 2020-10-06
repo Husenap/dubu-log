@@ -22,7 +22,7 @@ public:
 	static ILogger& Get() { return *ourLogger; }
 
 private:
-	Logger() = delete;
+	Logger()  = delete;
 	~Logger() = delete;
 
 	static std::unique_ptr<ILogger> ourLogger;
