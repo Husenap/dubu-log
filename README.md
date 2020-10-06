@@ -1,6 +1,12 @@
-# cmake-project-template
+![Windows](https://github.com/Husenap/dubu-log/workflows/Windows/badge.svg)
+![Ubuntu](https://github.com/Husenap/dubu-log/workflows/Ubuntu/badge.svg)
 
-Uses CMake for generating a basic project template.
+```
+   _     _           _         
+ _| |_ _| |_ _ _ ___| |___ ___ 
+| . | | | . | | |___| | . | . |
+|___|___|___|___|   |_|___|_  |
+                          |___|
+```
 
-![Windows](https://github.com/Husenap/cmake-project-template/workflows/Windows/badge.svg)
-![Ubuntu](https://github.com/Husenap/cmake-project-template/workflows/Ubuntu/badge.svg)
+C++ Logger using fmt for formatting
